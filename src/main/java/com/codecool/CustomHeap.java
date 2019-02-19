@@ -1,7 +1,5 @@
 package com.codecool;
 
-import java.util.Arrays;
-
 /*
  *   Implementaion of a max heap
  */
@@ -98,7 +96,12 @@ public class CustomHeap {
 
     private void extendCapacity() {
         if (size == numberCapacity) {
-            this.numbers = Arrays.copyOf(this.numbers, this.numberCapacity * this.TWO);
+            int[] newNumbers = new  int[this.numberCapacity * this.TWO];
+
+            for (int index = this.ZERO; index < this.size; index++) {
+                newNumbers[index] = this.numbers[index];
+            }
+            this.numbers = newNumbers;
             this.numberCapacity *= this.TWO;
         }
     }
