@@ -1,7 +1,6 @@
 package com.codecool;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 /*
  *   Implementaion of a max heap
@@ -54,7 +53,12 @@ public class CustomHeap {
     }
 
     public boolean contains(int number) {
-        return IntStream.of(this.numbers).anyMatch(x -> x == number);
+        for (int index = this.ZERO; index < this.size; index++) {
+            if (number == this.numbers[index]) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public int size() {
